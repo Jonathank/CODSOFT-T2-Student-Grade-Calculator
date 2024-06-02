@@ -6,11 +6,17 @@ import databaseUtilities.DataBaseUtilities;
 import student.Student;
 
 public class Application {
-	
+	/* Student id are auto generated, there fore
+	 * add student first, then you can view the student details
+	 * including their auto asigned ids. 
+	 * then pick the ids and pass them to where needed 
+	 * 
+	 * */
 	public static void main(String[] args) {
 		try(Scanner scan = new Scanner(System.in);){
 			while(true) {
-			String id,name,gender;
+			String id,name,gender,year,term,subject,grade;
+			int marks;
 			boolean add = true;
 		System.out.println("WELCOME TO STUDENT GRADE CALCULATION");
 		System.out.println("ENTER YOUR OPTION");
@@ -59,12 +65,27 @@ public class Application {
 			}
 			break;
 		case 2:
-			System.out.println("ALL STUDENTS");
+			System.out.println("\t\t\t ALL STUDENTS");
 			System.out.println();
 			DataBaseUtilities.viewstudents();
 			System.out.println();
 			System.out.println("..............................................");
 			System.out.println();
+			break;
+		case 3:
+			// EX1323100
+			System.out.println("Enter Student Id");
+			id = scan.next();
+			System.out.println("Enter Academic year");
+			year = scan.next();
+			System.out.println("Enter Term");
+			term = scan.next();
+			System.out.println("Enter Subject");
+			subject = scan.next();
+			System.out.println("Enter Marks");
+			marks = scan.nextInt();
+			
+			
 			break;
 			
 		}//end switch
