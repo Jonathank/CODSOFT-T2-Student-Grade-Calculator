@@ -75,6 +75,7 @@ public class DataBaseUtilities {
 	
 	public static void viewstudents() {
 		try {
+			System.out.println("STUDENT ID  " + "       	" +"STUDENT NAME" + "	        " + "GENDER");
 			String sql = "SELECT * FROM student";
 			Statement stmt = conn.createStatement();
 			
@@ -83,7 +84,10 @@ public class DataBaseUtilities {
 			Student std = new Student(rs.getString("studentid"),rs.getString("std_name"));
 			std.setGender(rs.getString("gender"));
 			
-			System.out.println(std.getStdid() + " " + std.getName() + " " + std.getGender());
+			
+			System.out.println("..................|........................|.................");
+			System.out.println();
+			System.out.println(std.getStdid() + "        	" + std.getName() + "             	 " + std.getGender());
 		}
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -104,6 +108,7 @@ public class DataBaseUtilities {
 			 
 			 stmt.execute();
 			 
+			 System.out.println();
 			 System.out.println("ADDED SUCCESSFULLY");
 			 
 		}catch(SQLException e) {
