@@ -105,7 +105,6 @@ public class DataBaseUtilities {
 			 stmt.setString(4, marks.getSubject());
 			 stmt.setInt(5, marks.getMarks());
 			 stmt.setString(6, marks.getGrade());
-			 
 			 stmt.execute();
 			 
 			 System.out.println();
@@ -119,7 +118,7 @@ public class DataBaseUtilities {
 	//
 	public static void viewSubjectAndMarks(String id, String year,String term) {
 		try {
-			String sql = "SELECT * FROM Subjects_and_Marks FROM Subjects_and_Marks WHERE IN (STUDENTID = ?,Academic_year = ? ,Term = ?)";
+			String sql = "SELECT * FROM Subjects_and_Marks WHERE STUDENTID = ? AND Academic_year = ? AND Term = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, id);
 			stmt.setString(2, year);
@@ -138,9 +137,9 @@ public class DataBaseUtilities {
 			System.out.println(marks.getStdid() + " " + marks.getAcademicyear() + " " + marks.getTerm() +
 					" " + marks.getSubject() + " "+ marks.getMarks()+ " "+ marks.getGrade());
 			
-			System.out.println("Average Marks "+ getAveragemark(id,year,term));
+			
 		}
-		
+		System.out.println("Average Marks "+ getAveragemark(id,year,term));
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -149,7 +148,7 @@ public class DataBaseUtilities {
 	private static Double getAveragemark(String id,String year,String term) {
 		Double averagemark = 0.0;
 		try {
-			String sql = "SELECT AVG(marks) As averagemark FROM Subjects_and_Marks WHERE IN (STUDENTID = ?,Academic_year = ? ,Term = ?) ";
+			String sql = "SELECT AVG(marks) As averagemark FROM Subjects_and_Marks WHERE STUDENTID = ? AND Academic_year = ? AND Term = ?";
 			
 			PreparedStatement stmt = conn.prepareStatement(sql);
 			stmt.setString(1, id);
@@ -160,6 +159,7 @@ public class DataBaseUtilities {
 				
 		while(rs.next()) {
 			
+			System.out.println();
 			averagemark = rs.getDouble("averagemark");
 			
 		}
@@ -169,6 +169,24 @@ public class DataBaseUtilities {
 		}	
 		return averagemark;
 	}
+	
+public static boolean isStudentIDExists(String id) {
+		
+        try {
+            String checkstmt = "SELECT COUNT(studentid) FROM student WHERE studentid =?";
+            PreparedStatement stmt = conn.prepareStatement(checkstmt);
+            stmt.setString(1, id);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                int count = rs.getInt(1);
+                return (count > 0);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return false;
+    }
+	
 	
 	
 }
