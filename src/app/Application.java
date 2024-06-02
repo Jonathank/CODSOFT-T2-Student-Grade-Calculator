@@ -193,11 +193,11 @@ public class Application {
 			
 			break;
 		case 4:
-			System.out.println("Enter Student Id");
+			System.out.print("Enter Student Id 		");
 			id = scan.next();
-			System.out.println("Enter Academic year");
+			System.out.print("Enter Academic year 	");
 			year = scan.next();
-			System.out.println("Enter Term");
+			System.out.println("Enter Term 			");
 			term = scan.next();
 			
 			if (!(DataBaseUtilities.isStudentIDExists(id))) {
@@ -205,7 +205,10 @@ public class Application {
 				System.err.println("STUDENT ID DOES NOT EXIST");
 				System.err.println("ENTER VALID STUDENT ID");
 			}
+			 System.out.println();
+			 System.out.println();
 			DataBaseUtilities.viewSubjectAndMarks(id, year, term);
+			 System.out.println();
 			break;
 		case 5:
 			

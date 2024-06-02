@@ -66,7 +66,7 @@ public class DataBaseUtilities {
 			stmt.setString(3, std.getGender());
 			
 			stmt.execute();
-			 System.out.println("NEW STUDENT RECORD CREATED");
+			System.out.println("NEW STUDENT RECORD CREATED");
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -135,11 +135,32 @@ public class DataBaseUtilities {
 			marks.setGrade(rs.getString("grade"));
 			
 			System.out.println(marks.getStdid() + " " + marks.getAcademicyear() + " " + marks.getTerm() +
-					" " + marks.getSubject() + " "+ marks.getMarks()+ " "+ marks.getGrade());
+					" " + marks.getSubject() + " "+ marks.getMarks()+"%"+ " "+ marks.getGrade());
 			
 			
 		}
 		System.out.println("Average Marks "+ getAveragemark(id,year,term));
+		Double avgpercentage = getAveragemark(id,year,term);
+		if(avgpercentage >= 75.0) {
+			System.out.println();
+			System.out.println("GRADE   :	 DIVISION ONE"+ "		GRADE PERCENTAGE : "+avgpercentage+"%");
+			System.out.println();
+		}
+		else if(avgpercentage >= 65.0) {
+			System.out.println();
+			System.out.println("GRADE   :	 DIVISION TWO"+ "		GRADE PERCENTAGE : "+avgpercentage+"%");
+			System.out.println();
+		}
+		else if(avgpercentage >= 50.0) {
+			System.out.println();
+			System.out.println("GRADE   :	 DIVISION THREE"+ "		GRADE PERCENTAGE : "+avgpercentage+"%");
+			System.out.println();
+		}
+		else if(avgpercentage < 50.0) {
+			System.out.println();
+			System.out.println("GRADE   :	 FAILED"+ "		GRADE PERCENTAGE : "+avgpercentage+"%");
+			System.out.println();
+		}
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
