@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import studentGradeCalculatorWithDataBase.student.Student;
-import subjectsAndMarks.SubjectAndMarks;
+import studentGradeCalculatorWithDataBase.subjectAndMarks.SubjectAndMarks;
 
 public class DataBaseUtilities {
 	static Connection conn = DatabaseConnection.getConnection();

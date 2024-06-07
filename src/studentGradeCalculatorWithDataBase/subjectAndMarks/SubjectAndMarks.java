@@ -1,4 +1,4 @@
-package subjectsAndMarks;
+package studentGradeCalculatorWithDataBase.subjectAndMarks;
 
 public class SubjectAndMarks {
 

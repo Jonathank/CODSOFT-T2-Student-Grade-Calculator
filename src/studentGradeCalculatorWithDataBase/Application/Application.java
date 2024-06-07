@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import studentGradeCalculatorWithDataBase.databaseUtilities.DataBaseUtilities;
 import studentGradeCalculatorWithDataBase.student.Student;
-import subjectsAndMarks.SubjectAndMarks;
+import studentGradeCalculatorWithDataBase.subjectAndMarks.SubjectAndMarks;
 
 public class Application {
 	/* Student id are auto generated, there fore
