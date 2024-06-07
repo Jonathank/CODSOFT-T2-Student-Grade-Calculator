@@ -1,9 +1,9 @@
-package app;
+package studentGradeCalculatorWithDataBase.Application;
 
 import java.util.Scanner;
 
-import databaseUtilities.DataBaseUtilities;
-import student.Student;
+import studentGradeCalculatorWithDataBase.databaseUtilities.DataBaseUtilities;
+import studentGradeCalculatorWithDataBase.student.Student;
 import subjectsAndMarks.SubjectAndMarks;
 
 public class Application {
@@ -193,11 +193,11 @@ public class Application {
 			
 			break;
 		case 4:
-			System.out.print("Enter Student Id 		");
+			System.out.println("Enter Student Id");
 			id = scan.next();
-			System.out.print("Enter Academic year 	");
+			System.out.println("Enter Academic year");
 			year = scan.next();
-			System.out.println("Enter Term 			");
+			System.out.println("Enter Term");
 			term = scan.next();
 			
 			if (!(DataBaseUtilities.isStudentIDExists(id))) {

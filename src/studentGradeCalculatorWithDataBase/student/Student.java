@@ -1,9 +1,9 @@
 /**
  * 
  */
-package student;
+package studentGradeCalculatorWithDataBase.student;
 
-import databaseUtilities.DataBaseUtilities;
+import studentGradeCalculatorWithDataBase.databaseUtilities.DataBaseUtilities;
 
 /**
  * @author USER

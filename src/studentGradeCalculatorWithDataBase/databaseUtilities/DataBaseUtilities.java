@@ -1,4 +1,4 @@
-package databaseUtilities;
+package studentGradeCalculatorWithDataBase.databaseUtilities;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import student.Student;
+import studentGradeCalculatorWithDataBase.student.Student;
 import subjectsAndMarks.SubjectAndMarks;
 
 public class DataBaseUtilities {
@@ -139,27 +139,31 @@ public class DataBaseUtilities {
 			
 			
 		}
-		System.out.println("Average Marks "+ getAveragemark(id,year,term));
+		System.out.println("Average Marks "+ getAveragemark(id,year,term)+"%");
 		Double avgpercentage = getAveragemark(id,year,term);
 		if(avgpercentage >= 75.0) {
 			System.out.println();
 			System.out.println("GRADE   :	 DIVISION ONE"+ "		GRADE PERCENTAGE : "+avgpercentage+"%");
 			System.out.println();
+			System.out.println("Excellent Performance. Please maintain");
 		}
 		else if(avgpercentage >= 65.0) {
 			System.out.println();
 			System.out.println("GRADE   :	 DIVISION TWO"+ "		GRADE PERCENTAGE : "+avgpercentage+"%");
 			System.out.println();
+			System.out.println("Good Performance. Please You Need To Aim Higher");
 		}
 		else if(avgpercentage >= 50.0) {
 			System.out.println();
 			System.out.println("GRADE   :	 DIVISION THREE"+ "		GRADE PERCENTAGE : "+avgpercentage+"%");
 			System.out.println();
+			System.out.println("Fair Performance. Please You Need To Aim Higher And Add Effort");
 		}
 		else if(avgpercentage < 50.0) {
 			System.out.println();
 			System.out.println("GRADE   :	 FAILED"+ "		GRADE PERCENTAGE : "+avgpercentage+"%");
 			System.out.println();
+			System.out.println("Much Effort Is Required. Please Work Harder For Better Results");
 		}
 		}catch(SQLException e) {
 			e.printStackTrace();

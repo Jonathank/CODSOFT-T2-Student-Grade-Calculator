@@ -1,4 +1,4 @@
-package databaseUtilities;
+package studentGradeCalculatorWithDataBase.databaseUtilities;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
